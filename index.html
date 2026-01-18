@@ -204,6 +204,19 @@ footer {
   padding: 30px;
   color: var(--muted);
   font-size: 0.9rem;
+}/* ===== Contact buttons fix ===== */
+.contact-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  max-width: 420px;
+  margin: 20px auto 0;
+}
+
+.contact-buttons .btn {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
 }
 </style>
 </head>
@@ -268,11 +281,13 @@ footer {
 <section id="contact">
   <h2>Contact</h2>
   <div class="card" style="text-align:center">
-  
-    <a class="btn" href="mailto:tahirrashid120@gmail.com">Gmail</a>
-    <a class="btn" href="https://instagram.com/tahirrashid_jandk" target="_blank">Instagram</a>
-    <a class="btn" href="https://www.linkedin.com/in/tahirrashidk" target="_blank">LinkedIn</a>
-    <a class="btn" href="https://www.facebook.com/share/1DaLwEZEMJ/" target="_blank">Facebook</a>
+  <div class="contact-buttons">
+  <a class="btn" href="mailto:tahirrashid120@gmail.com">Gmail</a>
+  <a class="btn" href="https://instagram.com/tahirrashid_jandk" target="_blank">Instagram</a>
+  <a class="btn" href="https://www.linkedin.com/in/tahirrashidk" target="_blank">LinkedIn</a>
+  <a class="btn" href="https://www.facebook.com/share/1DaLwEZEMJ/" target="_blank">Facebook</a>
+  </div>
+    
   </div>
 </section>
 

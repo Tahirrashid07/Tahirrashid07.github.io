@@ -3,180 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tahir Rashid | Personal Website</title>
+<title>Tahir Rashid | Portfolio</title>
 
-<style> /* Desktop view fix */
-@media (min-width: 1024px) {
-  .profile-pic {
-    width: 240px;
-    height: 240px;
-    border-width: 6px;
-    box-shadow: 0 0 50px rgba(56,189,248,0.9);
-  }
+<style>
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #020617;
+  --card: rgba(255,255,255,0.06);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
 }
-body {
+
+body.light {
+  --bg: #f8fafc;
+  --card: rgba(0,0,0,0.05);
+  --text: #020617;
+  --muted: #475569;
+  --accent: #0284c7;
+}
+
+* {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+  line-height: 1.7;
+}
+
+/* ===== BACKGROUND BLUR BLOBS ===== */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: var(--accent);
+  opacity: 0.18;
+  filter: blur(140px);
+  animation: move 20s infinite alternate;
+}
+
+.blob.one { top: -120px; left: -120px; }
+.blob.two { bottom: -120px; right: -120px; animation-delay: 5s; }
+
+@keyframes move {
+  from { transform: translate(0,0); }
+  to { transform: translate(140px, 100px); }
+}
+
+/* ===== TOGGLE ===== */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  background: var(--card);
+  cursor: pointer;
+  font-size: 18px;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* ===== HERO ===== */
 header {
   min-height: 100vh;
-  background: linear-gradient(rgba(2,6,23,0.75), rgba(2,6,23,0.9)),
-  url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .profile-pic {
-  width: 160px;
-  height: 160px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #38bdf8;
-  box-shadow: 0 0 30px rgba(56,189,248,0.7);
-  margin-bottom: 20px;
+  border: 5px solid var(--accent);
+  box-shadow: 0 0 50px rgba(56,189,248,0.9);
+  margin-bottom: 25px;
   animation: float 4s ease-in-out infinite;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: #cbd5f5;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 12px 26px;
-  background: #38bdf8;
-  color: #020617;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-h2 {
-  color: #38bdf8;
-  margin-bottom: 20px;
-}
-
-.card {
-  background: #020617;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-ul {
-  padding-left: 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #020617;
-  color: #94a3b8;
+@media (min-width: 1024px) {
+  .profile-pic {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, var(--accent), #22d3ee, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  max-width: 700px;
+  color: var(--muted);
+  margin: 15px 0 20px;
+  font-size: 1.1rem;
+}
+
+.badge {
+  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  color: #020617;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(56,189,248,0.6);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  padding: 14px 34px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  color: #020617;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 15px 30px rgba(56,189,248,0.5);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 35px;
+  margin-bottom: 35px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+}
+
+/* ===== SKILLS GRID ===== */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.skill {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===== QUOTE ===== */
+.quote {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+</div>
+
+<div class="toggle" onclick="toggleMode()">🌙</div>
+
 <header>
-  <img src="./profile.jpg" class="profile-pic" alt="Tahir Rashid">
+  <img src="profile.jpg" class="profile-pic" alt="Tahir Rashid">
   <h1>Tahir Rashid</h1>
   <p class="subtitle">
     B.Tech (Computer Science) | IT Support & Helpdesk | Emerging Tech Professional
   </p>
+  <div class="badge">🚀 I built this website myself</div>
   <a href="#contact" class="btn">Contact Me</a>
 </header>
+
+<section>
+  <h2>Daily Motivation</h2>
+  <div class="card quote" id="quoteBox"></div>
+</section>
 
 <section>
   <h2>About Me</h2>
   <div class="card">
     <p>
-      I am a B.Tech Computer Science graduate with hands-on experience in IT Support,
-      system troubleshooting, and end-user assistance. I have worked with hardware and
-      software issues, Windows OS, basic networking, and remote support.
+      I am a Computer Science graduate with hands-on experience in IT support,
+      troubleshooting, Windows OS, networking basics, and digital safety.
+      I believe in self-learning, consistency, and building things from scratch.
     </p>
-    <p>
-      I am focused on delivering reliable IT solutions and growing as an
-      IT Support / Helpdesk professional.
-    </p>
+    <br>
     <p><strong>Location:</strong> Kashmir</p>
   </div>
 </section>
 
 <section>
   <h2>Skills</h2>
-  <div class="card">
-    <ul>
-      <li>IT Support & Helpdesk Operations</li>
-      <li>Hardware & Software Troubleshooting</li>
-      <li>Windows Operating System</li>
-      <li>Basic Networking</li>
-      <li>Remote Desktop Support</li>
-      <li>System Monitoring & Documentation</li>
-      <li>Microsoft Office</li>
-      <li>Basic Cyber Security & Digital Safety</li>
-      <li>Customer Support & Communication</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>IT Support – Hands-on Experience</h3>
-    <p><strong>Tech Solutions</strong> | 2022 – 2023</p>
-    <ul>
-      <li>Provided technical support for hardware, software, and OS issues</li>
-      <li>Assisted users with system setup and remote support</li>
-      <li>Supported basic networking tasks and system monitoring</li>
-      <li>Documented issues and maintained IT records</li>
-    </ul>
+  <div class="skills">
+    <div class="skill">IT Support & Helpdesk</div>
+    <div class="skill">Hardware & Software Troubleshooting</div>
+    <div class="skill">Windows OS</div>
+    <div class="skill">Basic Networking</div>
+    <div class="skill">Remote Desktop Support</div>
+    <div class="skill">System Monitoring</div>
+    <div class="skill">Cyber Security Basics</div>
+    <div class="skill">Digital Safety Practices</div>
+    <div class="skill">Microsoft Office</div>
+    <div class="skill">Data Entry & Reporting</div>
+    <div class="skill">Customer Support</div>
+    <div class="skill">Communication Skills</div>
+    <div class="skill">Problem Solving</div>
+    <div class="skill">Time Management</div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <div class="card">
-    <p>Email: tahirrashid120@gmail.com</p>
-    <p>
-      <a class="btn" href="mailto:tahirrashid120@gmail.com">Gmail</a>
-      <a class="btn" href="https://instagram.com/tahirrashid_jandk" target="_blank">Instagram</a>
-      <a class="btn" href="https://www.linkedin.com/in/tahirrashidk" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://www.facebook.com/share/1DaLwEZEMJ/" target="_blank">Facebook</a>
-    </p>
+  <div class="card" style="text-align:center">
+    <p>Email: tahirrashid120@gmail.com</p><br>
+    <a class="btn" href="mailto:tahirrashid120@gmail.com">Gmail</a>
+    <a class="btn" href="https://instagram.com/tahirrashid_jandk" target="_blank">Instagram</a>
+    <a class="btn" href="https://www.linkedin.com/in/tahirrashidk" target="_blank">LinkedIn</a>
+    <a class="btn" href="https://www.facebook.com/share/1DaLwEZEMJ/" target="_blank">Facebook</a>
   </div>
 </section>
 
 <footer>
-  © 2026 Tahir Rashid | Kashmir
+© 2026 Tahir Rashid | Kashmir
 </footer>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+
+const quotes = [
+  "Great things take time. Stay patient and consistent.",
+  "Discipline beats motivation every single day.",
+  "Start where you are. Use what you have. Do what you can.",
+  "Your future self will thank you for the effort you put in today.",
+  "Success is built quietly, not announced loudly.",
+  "You don’t need luck when you have persistence."
+];
+
+const today = new Date().getDate();
+document.getElementById("quoteBox").innerText = quotes[today % quotes.length];
+</script>
 
 </body>
 </html>

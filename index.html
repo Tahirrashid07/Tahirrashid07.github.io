@@ -4,7 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tahir Rashid | Portfolio</title>
+/* ===== ABOUT + HOBBIES ===== */
+.about p {
+  margin-bottom: 14px;
+}
 
+.subhead {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hobbies {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hobbies li {
+  background: rgba(56,189,248,0.15);
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.location {
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.9;
+}
 <style>
 /* ===== THEME VARIABLES ===== */
 :root {
@@ -247,18 +276,35 @@ footer {
 
 <section>
   <h2>About Me</h2>
-  <div class="card">
+
+  <div class="card about">
+
     <p>
       I am a Computer Science graduate with hands-on experience in IT support,
       troubleshooting, Windows OS, networking basics, and digital safety.
-      I believe in self-learning, consistency, and building things from scratch.
+      I enjoy solving real-world technical problems and helping people through technology.
     </p>
-    <br>
-    <p><strong>Location:</strong> Kashmir</p>
+
+    <p>
+      I believe in self-learning, consistency, and building things from scratch.
+      My goal is to grow as a reliable IT Support / Helpdesk professional with strong
+      fundamentals and practical knowledge.
+    </p>
+
+    <h3 class="subhead">Hobbies & Interests</h3>
+
+    <ul class="hobbies">
+      <li>💻 Exploring new technologies</li>
+      <li>🛠 Fixing computers & software issues</li>
+      <li>📚 Self-learning through online resources</li>
+      <li>🎧 Tech podcasts & videos</li>
+      <li>🌐 Following cybersecurity & IT trends</li>
+    </ul>
+
+    <p class="location"><strong>Location:</strong> Kashmir</p>
+
   </div>
 </section>
-
-<section>
   <h2>Skills</h2>
   <div class="skills">
     <div class="skill">IT Support & Helpdesk</div>
@@ -267,8 +313,7 @@ footer {
     <div class="skill">Basic Networking</div>
     <div class="skill">Remote Desktop Support</div>
     <div class="skill">System Monitoring</div>
-    <div class="skill">Cyber Security Basics</div>
-    <div class="skill">Digital Safety Practices</div>
+    <div class="skill">l">Digital Safety Practices</div>
     <div class="skill">Microsoft Office</div>
     <div class="skill">Data Entry & Reporting</div>
     <div class="skill">Customer Support</div>
